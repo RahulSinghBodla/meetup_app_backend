@@ -108,5 +108,5 @@ app.delete("/meetups/:meetid", async(req,res)=>{
     }
 })
 
-const PORT = process.env.PORT || 3093
+const PORT = process.env.PORT || 3094
 app.listen(PORT, ()=> console.log("Server is running on port", PORT))
