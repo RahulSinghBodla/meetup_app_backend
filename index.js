@@ -80,7 +80,7 @@ async function getMeetByTitle(theTitle){
         throw err
     }
 }
-app.get("/meetups/title", async(req,res)=>{
+app.get("/meetups/:title", async(req,res)=>{
     try{
         const theMeet = await getMeetByTitle(req.params.title)
         if(theMeet)res.status(200).json({message:"Meetup read successfully.", ourmeet: theMeet})
@@ -98,7 +98,7 @@ async function deleteMeetById(meetId){
         throw err
     }
 }
-app.delete("/meetups/meetid", async(req,res)=>{
+app.delete("/meetups/:meetid", async(req,res)=>{
     try{
         const deletedMeet2 = await deleteMeetById(req.params.meetid)
         if(deletedMeet2)res.status(200).json({message:"Meetups deleted successfully.", deletedmeet: deletedMeet2})
@@ -108,5 +108,5 @@ app.delete("/meetups/meetid", async(req,res)=>{
     }
 })
 
-const PORT = process.env.port || 3093
+const PORT = process.env.PORT || 3093
 app.listen(PORT, ()=> console.log("Server is running on port", PORT))
