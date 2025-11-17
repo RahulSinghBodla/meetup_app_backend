@@ -6,8 +6,8 @@ app.use(express.json())
 
 const cors = require("cors")
 const corsOptions = {
-    origin: "*",
-    Credentials: true,
+    origin: ["http://localhost:5173"],
+    credentials: true,
     optionsSuccessStatus: 200
 }
 app.use(cors(corsOptions))
