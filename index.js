@@ -72,23 +72,7 @@ app.get("/meetups/:id", async(req,res)=>{
     }
 })
 
-async function getMeetByTitle(theTitle){
-    try{
-        const ourMeet = await Meetup.findOne({title: theTitle})
-        return ourMeet
-    }catch(err){
-        throw err
-    }
-}
-app.get("/meetups/:title", async(req,res)=>{
-    try{
-        const theMeet = await getMeetByTitle(req.params.title)
-        if(theMeet)res.status(200).json({message:"Meetup read successfully.", ourmeet: theMeet})
-        else res.status(400).json({message: "some error while reading meetup"})
-    }catch(err){
-        res.status(404).json({error: err})
-    }
-})
+
 
 async function deleteMeetById(meetId){
     try{
